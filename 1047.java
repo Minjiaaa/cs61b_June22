@@ -18,6 +18,21 @@ class Solution{
     }
  }
 
+ 这个方法复杂度比较低
+ class Solution{
+    public String removeDuplicates(String S){
+        char[] c = S.toCharArray();
+        int n = c.length, top = -1; //top表示栈顶索引
+        for (int i = 0; i < n; i++){ //将新字符串存储在c的前段
+            if (top == -1 ||c[top] != c[i])//栈为空或者栈顶与当前元素不同
+                c[++top] = c[i];
+            else
+                top--;
+        }
+        return String.valueOf(c, 0, ++top);
+    }
+}
+ 
     
     
             
